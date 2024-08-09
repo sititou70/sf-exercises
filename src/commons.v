@@ -2,6 +2,7 @@ Require Import Unicode.Utf8.
 Require Import String.
 Require Export String.
 Open Scope string_scope.
+Require Export List.
 
 Definition admit {T: Type} : T. Admitted.
 
@@ -29,3 +30,7 @@ Tactic Notation "SSSSCase" constr(name) := Case_aux SSSSCase name.
 Tactic Notation "SSSSSCase" constr(name) := Case_aux SSSSSCase name.
 Tactic Notation "SSSSSSCase" constr(name) := Case_aux SSSSSSCase name.
 Tactic Notation "SSSSSSSCase" constr(name) := Case_aux SSSSSSSCase name.
+
+Notation "[ ]" := nil.
+Notation "[ x , .. , y ]" := (cons x .. (cons y []) ..).
+Notation "x ++ y" := (app x y) (at level 60, right associativity).
