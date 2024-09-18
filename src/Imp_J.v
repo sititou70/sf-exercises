@@ -759,31 +759,25 @@ Proof.
   destruct k2 as [n2].
   destruct k3 as [n3].
   destruct (dec_eq_nat n3 n1).
-
   Case "n3 = n1".
     destruct (dec_eq_nat n3 n2).
-
     SCase "n3 = n2".
       subst.
       rewrite <- Id.beq_id_refl in H.
       inversion H.
-
     SCase "n3 <> n2".
       subst.
       rewrite <- Id.beq_id_refl.
       rewrite H.
       reflexivity.
-
   Case "n3 <> n1".
     destruct (dec_eq_nat n3 n2).
-
     SCase "n3 = n2".
       subst.
       rewrite <- Id.beq_id_refl.
       rewrite Id.beq_id_sym in H.
       rewrite H.
       reflexivity.
-
     SCase "n3 <> n2".
       unfold Id.beq_id.
       apply Nat.eqb_neq in H0.
