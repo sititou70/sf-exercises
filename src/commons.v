@@ -34,3 +34,11 @@ Tactic Notation "SSSSSSSCase" constr(name) := Case_aux SSSSSSSCase name.
 Notation "[ ]" := nil.
 Notation "[ x , .. , y ]" := (cons x .. (cons y []) ..).
 Notation "x ++ y" := (app x y) (at level 60, right associativity).
+
+Theorem ex_falso_quodlibet :
+  forall (P : Prop),
+  False -> P.
+Proof.
+  intros P contra.
+  inversion contra.
+Qed.
